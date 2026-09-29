@@ -1,0 +1,30 @@
+[
+    {
+        "id":1,
+        "clientes_id":1,
+        "produto":"Chia",
+        "preco":30,
+        "quantidade":2
+    },
+      {
+        "id":2,
+        "clientes_id":1,
+        "produto":"Psyllium",
+        "preco":45,
+        "quantidade":2
+    },
+      {
+        "id":3,
+        "clientes_id":2,
+        "produto":"Chia",
+        "preco":30,
+        "quantidade":1
+    },
+      {
+        "id":4,
+        "clientes_id":3,
+        "produto":"Psyllium",
+        "preco":45,
+        "quantidade":3
+    }
+]
