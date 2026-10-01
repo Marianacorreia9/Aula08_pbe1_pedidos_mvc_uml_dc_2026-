@@ -116,3 +116,11 @@ O teste retornou **200 OK**, confirmando a exclusão do pedido.
 Os CRUDs de clientes e pedidos foram concluídos com as funcionalidades de alteração e exclusão.
 
 Todos os testes foram realizados no Thunder Client e retornaram **200 OK**, comprovando o funcionamento das rotas desenvolvidas.
+
+## Cálculo do total dos pedidos
+
+Foi criada a função `calcTotais` para calcular o total de cada pedido com base nos itens cadastrados.
+
+### Teste no Thunder Client
+
+![Cálculo do total dos pedidos](calcular_total_pedido.png)
