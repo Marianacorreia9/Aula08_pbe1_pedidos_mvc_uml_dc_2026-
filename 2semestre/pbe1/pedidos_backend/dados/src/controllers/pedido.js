@@ -1,13 +1,21 @@
 const pedidos = require("../../pedidos.json")
+const itens = require("../../itens.json")
 
-function subotais() {
+function calcTotais() {
 
-    pedidos.forEach(p => {
+    pedidos.forEach(pedido => {
 
-        p.subtotal = p.quantidade * p.preco
+        const itensDoPedido = itens.filter(
+            item => Number(item.pedido_id) === Number(pedido.id)
+        )
 
+        pedido.total = itensDoPedido.reduce(
+            (total, item) => {
+                return total + (Number(item.preco) * Number(item.quantidade))
+            },
+            0
+        )
     })
-
 }
 
 const criar = (req, res) => {
@@ -19,24 +27,25 @@ const criar = (req, res) => {
     pedidos.push(dados)
 
     res.status(201).json(dados)
-
 }
 
 const listar = (req, res) => {
 
-    subotais()
+    calcTotais()
 
     res.json(pedidos)
-
 }
 
 const alterar = (req, res) => {
 
     const id = Number(req.params.id)
 
-    const indice = pedidos.findIndex(pedido => Number(pedido.id) === id)
+    const indice = pedidos.findIndex(
+        pedido => Number(pedido.id) === id
+    )
 
     if (indice === -1) {
+
         return res.status(404).json({
             mensagem: "Pedido não encontrado"
         })
@@ -48,20 +57,19 @@ const alterar = (req, res) => {
         id: pedidos[indice].id
     }
 
-    pedidos[indice].subtotal =
-        pedidos[indice].quantidade * pedidos[indice].preco
-
     res.json(pedidos[indice])
-
 }
 
 const excluir = (req, res) => {
 
     const id = Number(req.params.id)
 
-    const indice = pedidos.findIndex(pedido => Number(pedido.id) === id)
+    const indice = pedidos.findIndex(
+        pedido => Number(pedido.id) === id
+    )
 
     if (indice === -1) {
+
         return res.status(404).json({
             mensagem: "Pedido não encontrado"
         })
@@ -70,7 +78,6 @@ const excluir = (req, res) => {
     const pedidoExcluido = pedidos.splice(indice, 1)
 
     res.json(pedidoExcluido[0])
-
 }
 
 module.exports = {

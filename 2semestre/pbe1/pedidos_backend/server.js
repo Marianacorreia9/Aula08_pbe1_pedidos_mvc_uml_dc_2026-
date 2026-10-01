@@ -1,7 +1,7 @@
 const express = require("express")
 const cors = require("cors")
 
-const routes = require("./dados/src/routes")
+const routes = require("./dados/routes")
 
 const app = express()
 

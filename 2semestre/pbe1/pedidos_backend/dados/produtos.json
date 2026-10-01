@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "nome": "Chia",
+        "preco": 25.00,
+        "estoque": 20
+    },
+    {
+        "id": 2,
+        "nome": "Aveia",
+        "preco": 15.00,
+        "estoque": 30
+    },
+    {
+        "id": 3,
+        "nome": "Granola",
+        "preco": 20.00,
+        "estoque": 15
+    }
+]
